@@ -7,10 +7,46 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+
+
+import Home from './Components/Header/Home.jsx';
+import Footer from './Components/Footer/Footer.jsx';
+import AddProduct from './Components/Add Product/AddProduct.jsx';
+import MyCard from './Components/My Card/MyCard.jsx';
+
+import Login from './Components/Authentication/Login.jsx';
+import SignUp from './Components/Authentication/SignUp.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    children: [
+      {
+        path:"/",
+        element:<Home></Home>
+      },
+      {
+        path:'/addProduct',
+        element:<AddProduct></AddProduct>
+      },
+      {
+        path:'/myCard',
+        element:<MyCard></MyCard>
+      },
+      {
+        path:'/Login',
+        element:<Login></Login>
+      },
+      {
+        path:'/signUp',
+        element:<SignUp></SignUp>
+      },
+      {
+        path:'/footer',
+        element:<Footer></Footer>
+      },
+    ]
+    
   },
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
