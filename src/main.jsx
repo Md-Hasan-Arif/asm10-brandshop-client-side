@@ -16,6 +16,7 @@ import MyCard from './Components/My Card/MyCard.jsx';
 
 import Login from './Components/Authentication/Login.jsx';
 import SignUp from './Components/Authentication/SignUp.jsx';
+import BrandDetails from './Components/Brand Details/BrandDetails.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,12 +27,18 @@ const router = createBrowserRouter([
         element:<Home></Home>
       },
       {
+        path:"/BrandDetails",
+        element:<BrandDetails></BrandDetails>,
+        
+      },
+      {
         path:'/addProduct',
         element:<AddProduct></AddProduct>
       },
       {
         path:'/myCard',
-        element:<MyCard></MyCard>
+        element:<MyCard></MyCard>,
+        loader: ()=> fetch("http://localhost:5000/addProduct")
       },
       {
         path:'/Login',
