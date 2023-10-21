@@ -5,10 +5,11 @@ import DetailsLayout from "../../Second components/DetailsLayout";
 const BrandDetails = () => {
 
     const Details = useLoaderData();
-    console.log(Details)
+    // console.log(Details)
     const name = useParams()
     console.log(name)
     const Brands = Details.filter(detail => detail.BrandName === name.brandName)
+    // console.log(Brands)
 
 
 

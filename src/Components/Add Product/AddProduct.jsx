@@ -17,7 +17,7 @@ const AddProduct = () => {
         console.log(newProduct)
 
         // send data to the server
-        fetch('http://localhost:5000/addProduct', {
+        fetch(' https://my-10-server-kclfptc8o-md-hasan-arifs-projects.vercel.app/addProduct', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

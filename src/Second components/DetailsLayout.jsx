@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 
 const DetailsLayout = ({ brand }) => {
+    console.log(brand)
     const { _id, photo, BrandName, Description, price, Rating, Type } = brand;
     return (
         <div>

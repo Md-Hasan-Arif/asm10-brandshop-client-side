@@ -16,12 +16,7 @@ const BrandLayout = ({brand}) => {
                     </div>
 
                 </div>
-                {/* <div className=" text-center mt-6">
-                    <Link to={'/details/:id'}>
-                        <button className="btn btn-error bg-orange-600">Dtails</button>
-                    </Link>
-
-                </div> */}
+              
 
              </div>
             </Link>

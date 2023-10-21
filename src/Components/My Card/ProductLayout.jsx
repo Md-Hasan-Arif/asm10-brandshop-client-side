@@ -20,7 +20,7 @@ const ProductLayout = ({ product, products, setProducts }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/addProduct/${_id}`, {
+                fetch(` https://my-10-server-kclfptc8o-md-hasan-arifs-projects.vercel.app/addProduct/${_id}`, {
                     method: 'Delete'
 
                 })

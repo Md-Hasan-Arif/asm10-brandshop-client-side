@@ -1,11 +1,11 @@
 import { useLoaderData } from "react-router-dom";
 import ProductLayout from "./ProductLayout";
-// import { useState } from "react";
+import { useState } from "react";
 
 
 const MyCard = () => {
     const loadedProducts = useLoaderData()
-    // const [products, setProducts] = useState(loadedProducts);
+    const [products, setProducts] = useState(loadedProducts);
 
     return (
         <div>

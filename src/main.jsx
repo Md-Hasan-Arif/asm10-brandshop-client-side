@@ -20,6 +20,7 @@ import BrandDetails from './Components/Brand Details/BrandDetails.jsx';
 import UpdateProduct from './Components/My Card/Update Product/UpdateProduct.jsx';
 import AuthProvider from './Providers/AuthProvider.jsx';
 import ProductDetails from './Second components/Product Details/ProductDetails.jsx';
+import PrivateRoute from './routes/PrivateRoute.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -32,27 +33,28 @@ const router = createBrowserRouter([
       {
         path: "/BrandDetails/:brandName",
         element: <BrandDetails></BrandDetails>,
-        loader: () => fetch(`http://localhost:5000/addProduct`)
+        loader: () => fetch(` https://my-10-server-kclfptc8o-md-hasan-arifs-projects.vercel.app/addProduct`)
       },
       {
         path: "/productsDetails/:id",
-        element: <ProductDetails></ProductDetails>,
         
-        loader: () => fetch(`http://localhost:5000/addProduct`)
+        element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
+        
+        loader: () => fetch(` https://my-10-server-kclfptc8o-md-hasan-arifs-projects.vercel.app/addProduct`)
       },
       {
         path: '/addProduct',
-        element: <AddProduct></AddProduct>
+        element:<PrivateRoute> <AddProduct></AddProduct> </PrivateRoute>
       },
       {
         path: '/myCard',
         element: <MyCard></MyCard>,
-        loader: () => fetch("http://localhost:5000/saveProduct")
+        loader: () => fetch(" https://my-10-server-kclfptc8o-md-hasan-arifs-projects.vercel.app/saveProduct")
       },
       {
         path: '/updateProduct/:id',
         element: <UpdateProduct></UpdateProduct>,
-        loader: ({ params }) => fetch(`http://localhost:5000/addProduct/${params._id}`)
+        loader: ({ params }) => fetch(` https://my-10-server-kclfptc8o-md-hasan-arifs-projects.vercel.app/addProduct/${params._id}`)
       },
       {
         path: '/Login',

@@ -2,7 +2,9 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
-// import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+
+import auth from "../../firebase/firebase.config";
 
 
 
@@ -14,14 +16,28 @@ const Login = () => {
 
     // const [success, setSuccess] = useState('')
 
-    const handleLogin = e =>{
+    const Auth = getAuth(auth);
+    console.log(Auth)
+    const provider = new GoogleAuthProvider()
+
+
+    const handleGoogleSignIn = () => {
+        signInWithPopup(Auth, provider)
+        .then(result =>{
+            const user = result.user;
+            console.log(user)
+        })
+        .then(error =>{
+            console.log(error.message);
+        })
+    }
+
+
+    const handleLogin = e => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
         console.log(email, password)
-        // const auth = getAuth;
-        // const provider = new GoogleAuthProvider()
-        // signInWithPopup(auth, provider)
 
         setLoginErr('');
 
@@ -36,6 +52,7 @@ const Login = () => {
                 setLoginErr(error.message)
             })
     }
+    
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
@@ -50,7 +67,7 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" name="email" placeholder="email" className="input input-bordered" required autoComplete="current-email"/>
+                                <input type="email" name="email" placeholder="email" className="input input-bordered" required autoComplete="current-email" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -63,6 +80,9 @@ const Login = () => {
                             </div>
                             <input className="btn btn-error" type="Submit" value="Login" />
                         </form>
+                        {
+                            <button onClick={handleGoogleSignIn}>Login with Google</button>
+                        }
                         {
                             LoginErr && <p className="text-red-600 pl-3">{LoginErr}</p>
                         }
