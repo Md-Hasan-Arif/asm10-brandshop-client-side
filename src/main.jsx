@@ -37,6 +37,11 @@ const router = createBrowserRouter([
         loader: () => fetch(` https://my-10-server-kclfptc8o-md-hasan-arifs-projects.vercel.app/addProduct`)
       },
       {
+        path: '/updateProduct/:id',
+        element: <UpdateProduct></UpdateProduct>,
+        loader: ({ params }) => fetch(` https://my-10-server-kclfptc8o-md-hasan-arifs-projects.vercel.app/addProduct/${params._id}`)
+      },
+      {
         path: "/productsDetails/:id",
         
         element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
@@ -49,14 +54,10 @@ const router = createBrowserRouter([
       },
       {
         path: '/myCard',
-        element: <MyCard></MyCard>,
+        element: <PrivateRoute><MyCard></MyCard></PrivateRoute>,
         loader: () => fetch(" https://my-10-server-kclfptc8o-md-hasan-arifs-projects.vercel.app/saveProduct")
       },
-      {
-        path: '/updateProduct/:id',
-        element: <UpdateProduct></UpdateProduct>,
-        loader: ({ params }) => fetch(` https://my-10-server-kclfptc8o-md-hasan-arifs-projects.vercel.app/addProduct/${params._id}`)
-      },
+     
       {
         path: '/Login',
         element: <Login></Login>
