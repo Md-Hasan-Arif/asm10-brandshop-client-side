@@ -27,7 +27,7 @@ const Navbar = () => {
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="hidden md:h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-yell-600 rounded-box w-52 text-white navbar">
                             {navLinks}
@@ -37,7 +37,7 @@ const Navbar = () => {
                     <img className="h-16" src="https://i.ibb.co/0XD4J6m/download.webp" alt="" />
 
 
-                    <h3 className="text-2xl font-bold text-black md:ml-8">FASHION<span className="text-orange-600">FUSHION</span></h3>
+                    <h3 className=" text-black md:ml-8 text-2xl font-bold">FASHION<span className="text-orange-600">FUSHION</span></h3>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal text-black font-bold px-1">
@@ -45,7 +45,7 @@ const Navbar = () => {
                     </ul>
                 </div>
 
-                <div className="navbar-end">
+                <div className=" md:navbar-end">
                     {
                         user ? (
                             <>
@@ -61,7 +61,7 @@ const Navbar = () => {
                           )
 
                     }
-
+ 
                 </div>
 
             </div>
