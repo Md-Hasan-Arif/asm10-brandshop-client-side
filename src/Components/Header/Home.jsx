@@ -1,5 +1,6 @@
 import Brand from "../Brand/Brand";
 import SecondBanner from "../SecondBanner/SecondBanner";
+import Trend from "../Trend";
 import Banner from "./Banner";
 
 
@@ -9,6 +10,7 @@ const Home = () => {
             <Banner></Banner>
             <Brand></Brand>
             <SecondBanner></SecondBanner>
+            <Trend></Trend>
         </div>
     );
 };
