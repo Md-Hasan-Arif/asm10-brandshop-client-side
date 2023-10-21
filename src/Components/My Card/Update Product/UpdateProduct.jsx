@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const UpdateProduct = () => {
@@ -17,8 +18,31 @@ const UpdateProduct = () => {
         const Rating = form.rating.value;
         const photo = form.photo.value;
 
-        const newProduct = { name, BrandName, Type, price, Description, Rating, photo };
-        console.log(newProduct)
+        const updateProduct = { name, BrandName, Type, price, Description, Rating, photo };
+        console.log(updateProduct)
+        // send data to the server
+        fetch(` https://my-10-server-kclfptc8o-md-hasan-arifs-projects.vercel.app/saveProduct/${_id}`, {
+            method: 'PUT',
+            headrs: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updateProduct)
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId > 0) {
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: "You won't be able to revert this!",
+                        icon: 'success',
+                        confirmButtonText: 'cool'
+                     })
+                    
+
+                }
+            })
     }
     return (
         <div className=" bg-[#F4F3F0] p-4 md:p-24 ">
@@ -32,7 +56,7 @@ const UpdateProduct = () => {
                     </label>
                     <label className="input-group">
 
-                        <input type="text" placeholder="Product Name" name="name" className="input input-bordered md:w-full" />
+                        <input type="text" defaultValue={name} placeholder="Product Name" name="name" className="input input-bordered md:w-full" />
                     </label>
                 </div>
 
@@ -42,7 +66,7 @@ const UpdateProduct = () => {
                     </label>
                     <label className="input-group">
 
-                        <input type="text" placeholder="Brad Name" name="brandName" className="input input-bordered md:w-full" />
+                        <input type="text"  defaultValue={BrandName} placeholder="Brad Name" name="brandName" className="input input-bordered md:w-full" />
                     </label>
                 </div>
             </div>
@@ -54,7 +78,7 @@ const UpdateProduct = () => {
                     </label>
                     <label className="input-group">
 
-                        <input type="text" placeholder="Type" name="types" className="input input-bordered md:w-full" />
+                        <input type="text" defaultValue={Type} placeholder="Type" name="types" className="input input-bordered md:w-full" />
                     </label>
                 </div>
 
@@ -64,7 +88,7 @@ const UpdateProduct = () => {
                     </label>
                     <label className="input-group">
 
-                        <input type="text" placeholder="Price" name="price" className="input input-bordered md:w-full" />
+                        <input type="text" defaultValue={price} placeholder="Price" name="price" className="input input-bordered md:w-full" />
                     </label>
                 </div>
             </div>
@@ -76,7 +100,7 @@ const UpdateProduct = () => {
                     </label>
                     <label className="input-group">
 
-                        <input type="text" placeholder="Short Description" name="description" className="input input-bordered md:w-full" />
+                        <input type="text" defaultValue={ Description} placeholder="Short Description" name="description" className="input input-bordered md:w-full" />
                     </label>
                 </div>
 
@@ -86,7 +110,7 @@ const UpdateProduct = () => {
                     </label>
                     <label className="input-group">
 
-                        <input type="text" placeholder="Rating" name="rating" className="input input-bordered md:w-full" />
+                        <input type="text" defaultValue={Rating} placeholder="Rating" name="rating" className="input input-bordered md:w-full" />
                     </label>
                 </div>
             </div>
@@ -98,13 +122,13 @@ const UpdateProduct = () => {
                     </label>
                     <label className="input-group">
 
-                        <input type="text" placeholder="Photo URL" name="photo" className="input input-bordered md:w-full" />
+                        <input type="text" defaultValue={photo} placeholder="Photo URL" name="photo" className="input input-bordered md:w-full" />
                     </label>
                 </div>
 
 
             </div>
-            <input type="submit" value="Add Product" className=" mt-4 btn btn-block bg-slate-700 text-white hover:text-black" />
+            <input type="submit" value="Update Product" className=" mt-4 btn btn-block bg-slate-700 text-white hover:text-black" />
         </form>
     </div>
     );

@@ -25,6 +25,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    // errorElement:<Error></Error>,
     children: [
       {
         path: "/",
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/addProduct',
-        element:<PrivateRoute> <AddProduct></AddProduct> </PrivateRoute>
+        element:<PrivateRoute> <AddProduct></AddProduct></PrivateRoute>
       },
       {
         path: '/myCard',
