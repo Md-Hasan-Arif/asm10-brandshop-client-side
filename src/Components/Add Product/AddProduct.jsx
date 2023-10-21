@@ -37,20 +37,6 @@ const AddProduct = () => {
                     })
                 }
             })
-
-        //  .then(res => res.json())
-        //  .then(data => {
-        //     console.log(data)
-        //     if(data.insertedId){
-        //         Swal.fire({
-        //             position: 'top-end',
-        //             icon: 'success',
-        //             title: 'Sabass beta added successfully',
-        //             showConfirmButton: false,
-        //             timer: 1500
-        //           })
-        //     }
-        //  })
     }
     return (
         <div className=" bg-[#F4F3F0] p-4 md:p-24 ">

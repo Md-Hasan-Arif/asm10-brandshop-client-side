@@ -4,7 +4,7 @@ import BrandLayout from "./BrandLayout";
 
 const Brand = () => {
     const [Brands, setBrand] = useState([])
-    console.log(Brands)
+ 
 
 
     useEffect(() => {

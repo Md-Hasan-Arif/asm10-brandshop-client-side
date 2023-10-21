@@ -1,16 +1,23 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
+import DetailsLayout from "../../Second components/DetailsLayout";
 
 
 const BrandDetails = () => {
 
     const Details = useLoaderData();
     console.log(Details)
+    const name = useParams()
+    console.log(name)
+    const Brands = Details.filter(detail => detail.BrandName === name.brandName)
+
+
 
     return (
         <div>
+
             <div className="carousel w-full">
                 <div id="slide1" className="carousel-item relative w-full">
-                    <img  src="https://i.ibb.co/Np19Bn1/images-16.jpg" className="w-full h-screen" />
+                    <img src="https://i.ibb.co/Np19Bn1/images-16.jpg" className="w-full h-screen" />
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                         <a href="#slide4" className="btn btn-circle">❮</a>
                         <a href="#slide2" className="btn btn-circle">❯</a>
@@ -38,6 +45,12 @@ const BrandDetails = () => {
                     </div>
                 </div>
             </div>
+            <div className="grid grid-cols-1   md:grid-cols-3 lg:grid-cols-3 container mx-auto gap-4 mt-3">
+                {
+                    Brands.map(brand => <DetailsLayout key={brand._id} brand={brand}></DetailsLayout>)
+                }
+            </div>
+
         </div>
     );
 };

@@ -1,4 +1,5 @@
 
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
@@ -49,11 +50,17 @@ const ProductLayout = ({ product, products, setProducts }) => {
                         <p className="text-base font-normal" >Type:{Type}</p>
                         <p className="text-base font-normal" >{Description}</p>
                         <p className="text-base font-normal" >Price:{price}</p>
-                     </div>
+                    </div>
 
                 </div>
-                <div className=" text-center mt-2">
-                <button onClick={() => handleDelete(_id)} className="btn btn-black">Delete product</button>
+                <div className=" text-center mt-2 ">
+                    <button onClick={() => handleDelete(_id)} className="btn btn-black">Delete product</button>
+
+                    <Link to={`/updateProduct/${_id}`}>
+                        <button className="btn btn-black">Update Product</button>
+                    </Link>
+
+
                 </div>
 
             </div>
